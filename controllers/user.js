@@ -1,16 +1,26 @@
-import { response } from 'express';
+import { response, request } from 'express';
 
 
 
 const getUsers = (req, res = response) => {
+
+    const {q, nombre, apikey} = req.query;
+    
     res.json({
-        msg:'get API - controller'
+        msg:'get API - controller',
+        q,
+        nombre,
+        apikey
     });
 }
 
 const putUser = (req, res = response) => {
+
+    const { id } = req.params;
+    
     res.status(500).json({
-        msg:'put API - controller'
+        msg:'put API - controller',
+        id
     });
 }
 
